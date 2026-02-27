@@ -1,0 +1,2 @@
+-- Loading is implemented in Python (`src/load.py`) as part of the ETL pipeline.
+-- This file is intentionally left as documentation placeholder.
