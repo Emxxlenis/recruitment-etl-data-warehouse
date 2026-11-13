@@ -4,7 +4,7 @@ import os
 
 # Connect
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE_DIR, "sql", "etl_workshop.db")
+DB_PATH = os.path.join(BASE_DIR, "sql", "hiring_analytics.db")
 conn = sqlite3.connect(DB_PATH)
 
 # 1. Validate record count (expected: 50k)

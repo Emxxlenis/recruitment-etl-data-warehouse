@@ -12,7 +12,7 @@ import setup  # Optional: initial schema bootstrap
 
 
 def main():
-    print("=== ETL WORKSHOP PIPELINE ===")
+    print("=== HIRING ANALYTICS PIPELINE ===")
     
     # Step 0: health check (optional but recommended)
     if not os.path.exists(config.DB_PATH):

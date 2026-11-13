@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analítica de contratación · Emily Lenis</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #10140f;
+      color: #e7ece4;
+      line-height: 1.5;
+    }
+    main { max-width: 980px; margin: 0 auto; padding: 48px 20px 72px; }
+    p { color: #c5cec2; }
+    a { color: #d7e26a; }
+    h1 { font-weight: 560; font-size: 2rem; letter-spacing: -0.03em; margin: 0 0 8px; }
+    h2 { font-size: 1.15rem; margin: 36px 0 12px; font-weight: 560; }
+    .lede { max-width: 68ch; }
+    .en { color: #8e998c; font-size: 0.92rem; }
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 28px 0; }
+    .kpi { background: #1a2118; border: 1px solid #2c3828; border-radius: 12px; padding: 16px; }
+    .kpi b { display: block; font-size: 1.45rem; color: #f3f6ef; font-weight: 600; }
+    .kpi span { color: #9aa696; font-size: 0.82rem; }
+    figure { margin: 16px 0 28px; }
+    img { width: 100%; border-radius: 12px; border: 1px solid #2c3828; background: #1a2118; }
+    figcaption { color: #9aa696; font-size: 0.85rem; margin-top: 8px; }
+    .views { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    ul { padding-left: 1.1rem; color: #c5cec2; }
+    @media (max-width: 720px) { .kpis { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="en">Hiring analytics · raw applications in, a decision-ready warehouse out.</p>
+    <h1>Analítica de contratación</h1>
+    <p class="lede">Un archivo de postulaciones entra al pipeline. La salida es una bodega con esquema estrella y un tablero para ver contrataciones por tecnología, país, año y seniority. Las filas que no cuadran se marcan. No se borran.</p>
+    <p><a href="https://github.com/Emxxlenis/recruitment-etl-data-warehouse">Código y modelo</a></p>
+
+    <section class="kpis">
+      <div class="kpi"><b>50.000</b><span>postulaciones en la corrida documentada</span></div>
+      <div class="kpi"><b>6.698</b><span>contrataciones</span></div>
+      <div class="kpi"><b>13,4%</b><span>tasa de contratación</span></div>
+      <div class="kpi"><b>8,5</b><span>puntaje técnico medio de quien pasa</span></div>
+    </section>
+
+    <h2>Cómo se decide una contratación</h2>
+    <p>La regla vive en la transformación, no en el tablero: hay contratación cuando el reto de código y la entrevista técnica quedan en 7 o más. El tablero solo lee la bodega.</p>
+
+    <h2>Tres lecturas del mismo dato</h2>
+    <ul>
+      <li><b>All.</b> Historial completo, incluidas las filas marcadas.</li>
+      <li><b>Clean.</b> Solo filas que pasaron las reglas de calidad.</li>
+      <li><b>Flagged.</b> Lo sospechoso: seniority imposible, puntajes fuera de rango, y el resto de reglas.</li>
+    </ul>
+    <p>Eso permite auditar sin perder volumen. Un intern con más de cinco años de experiencia no desaparece del archivo: queda visible en Flagged.</p>
+
+    <figure>
+      <img src="img/vista_1.png" alt="Tablero de contrataciones por tecnología y por país, con tasa del 13,4 por ciento" />
+      <figcaption>Vista general. Tecnología, país y tasa de contratación. Power BI leyendo la bodega.</figcaption>
+    </figure>
+    <div class="views">
+      <figure>
+        <img src="img/vista_2_all.png" alt="Distribución por seniority con el selector de calidad en All" />
+        <figcaption>Seniority y puntaje técnico, con el selector de calidad.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/vista_2_clean.png" alt="La misma vista filtrada a filas limpias" />
+        <figcaption>Misma página, solo filas Clean.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/vista_2_flagged.png" alt="La misma vista filtrada a filas marcadas" />
+        <figcaption>Misma página, solo filas Flagged.</figcaption>
+      </figure>
+    </div>
+    <p class="en">Figures are the Power BI delivery. The public page does not re-query a live database. Source file stays out of the repository.</p>
+  </main>
+</body>
+</html>

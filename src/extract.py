@@ -63,7 +63,7 @@ def extract_data(filepath):
         if df.shape[1] == 1:
             df = pd.read_csv(filepath, sep=",")
 
-        # Explicit data type validation (workshop requirement)
+        # Explicit data type validation before transform
         _validate_data_types(df)
 
         print(f"Extract completed: {df.shape[0]} rows loaded.")

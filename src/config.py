@@ -9,7 +9,7 @@ SQL_SCRIPT_PATH = os.path.join(SQL_DIR, 'create_tables.sql')
 
 # Database configuration
 # In production, use environment variables (os.getenv)
-DB_NAME = 'etl_workshop.db'
+DB_NAME = 'hiring_analytics.db'
 DB_PATH = os.path.join(SQL_DIR, DB_NAME)
 DATABASE_URL = f"sqlite:///{DB_PATH}" 
 # If scaling to Postgres: DATABASE_URL = "postgresql://user:pass@host:port/dbname"

@@ -10,11 +10,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def get_db_path() -> str:
     """
     Return Data Warehouse path.
-    Prefer etl_workshop.db in project root; if missing,
+    Prefer hiring_analytics.db in project root; if missing,
     fall back to a copy under sql/.
     """
-    root_db = os.path.join(BASE_DIR, "etl_workshop.db")
-    sql_db = os.path.join(BASE_DIR, "sql", "etl_workshop.db")
+    root_db = os.path.join(BASE_DIR, "hiring_analytics.db")
+    sql_db = os.path.join(BASE_DIR, "sql", "hiring_analytics.db")
 
     if os.path.exists(root_db):
         return root_db
